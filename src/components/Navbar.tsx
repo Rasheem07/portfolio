@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { Lamp, MoonIcon } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/redux";
-import { dark, light } from "@/actions/theme";
+import { dark, light } from "@/redux/actions/theme";
 import { useTheme } from "@/lib/reduxSelectors";
 
 type Props = {};

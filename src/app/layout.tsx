@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/footer";
-import StoreProvider from "./storeProvider";
+import StoreProvider from "../components/providers/storeProvider";
 import Main from "./main";
+import TrpcProvider from "@/components/providers/trpcProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <StoreProvider>
-        <Main>
-          {children}
-        </Main>
+        <TrpcProvider>
+          <Main>{children}</Main>
+        </TrpcProvider>
       </StoreProvider>
     </html>
   );

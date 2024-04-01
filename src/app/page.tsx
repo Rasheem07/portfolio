@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { InfiniteMovingCards } from "@/components/ui/moving-card";
 import { useTheme } from "@/lib/reduxSelectors";
+import { trpc } from "./_trpc/trpcClient";
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: -150 },
@@ -82,15 +83,8 @@ const testimonials = [
 
 
 export default function Home() {
-  const currentuseTheme = useTheme();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [index, setIndex] = useState(0);
 
-  const nextTestimonial = () => {
-    setIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+  const currentuseTheme = useTheme();
 
   return (
     <>
@@ -337,7 +331,7 @@ export default function Home() {
           client testimonials
         </motion.h2>
         <InfiniteMovingCards
-          key={Math.random()}
+          key={JSON.stringify(crypto.randomUUID)}
           items={testimonials}
           speed="normal"
           direction="right"

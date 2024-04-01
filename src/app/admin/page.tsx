@@ -1,13 +1,60 @@
+"use client";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { cn } from "@/lib/utils";
-import { CodeIcon } from "lucide-react";
+import { CodeIcon, Router } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useOptimistic, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaLinkedin, FaTwitter, FaGithub, FaReddit } from "react-icons/fa";
+import TextareaAutosize from "react-textarea-autosize";
+import { z } from "zod";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from "next/navigation";
+import { trpc } from "../_trpc/trpcClient";
 
 type Props = {};
 
 export default function Page({}: Props) {
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if(!localStorage.getItem('isAdmin')){
+      router.push('/admin/login')
+    }
+  }, [])
+
+  const personalInfoValidator = z.object({
+    info: z
+      .string()
+      .min(300)
+  });
+
+  type personalInfoType = z.infer<typeof personalInfoValidator>;
+
+  const {watch, register, handleSubmit, formState: {errors} } = useForm<personalInfoType>({
+    resolver: zodResolver(personalInfoValidator)
+  });
+
+  const [isProfileEdit, setisProfileEdit] = useState(false);
+
+  const profile = watch("info", "hello this is rasheem");
+  const profileLength = profile.length;
+
+
+  const handleEditProfile = () => {
+    if (isProfileEdit) {
+      handleSubmit(profileSubmit)();
+      setisProfileEdit(false);
+    } else {
+      setisProfileEdit(true);
+    }
+  };
+
+  const profileSubmit = (data: any) => {
+    
+  };
+
   return (
     <MaxWidthWrapper className="mt-6 md:mt-12 gap-6 min-h-[88vh]">
       <div className="py-4 px-2 flex items-center justify-between border-b border-zinc-300 w-full">
@@ -35,28 +82,48 @@ export default function Page({}: Props) {
         {/* About Section */}
         <div className="bg-white rounded-md p-6 shadow-md">
           <div className="flex items-center justify-between w-full mb-4">
-            <h3 className="text-lg font-semibold">About Me</h3>
-            <button className="bg-zinc-500 rounded-md offset-none focus:ring ring-blue-400 shadow-inner text-white py-1 px-4">
-              Edit details
+            <h3 className="text-lg font-semibold select-none">Introduction</h3>
+            <button
+              onClick={handleEditProfile}
+              disabled={profileLength >= 300 || profileLength <= 0}
+              className={`${
+                !isProfileEdit
+                  ? "bg-zinc-500 ring-zinc-400"
+                  : `bg-green-500 ring-green-400 select-none ${profileLength >= 300 || profileLength <= 0? 'bg-green-500/75': 'bg-green-500'}`
+              } cursor-pointer rounded-md offset-none focus:ring ring-zinc-400 shadow-inner text-white py-1 px-4`}
+            >
+              {isProfileEdit ? "Save changes" : "Edit details"}
             </button>
           </div>
           <div>
-            <p className="text-gray-700">
-              Hi, I&apos;m Mohammed Rasheem, a web developer and designer passionate
-              about creating user-friendly and visually appealing websites and
-              applications.
-            </p>
-            <p className="text-gray-700">
-              With several years of experience in web development, I specialize
-              in front-end development using modern technologies such as
-              React.js and Next.js.
+            <p>
+              {isProfileEdit ? (
+                <TextareaAutosize
+                  autoFocus
+                  maxRows={8}
+                  className={cn(errors.info || profileLength >= 300 && 'border focus-visible:border-red-500 rounded-md' ,`border-[#fff] p-1 min-h-20 outline-none w-full scrollbar-w-2 scrollbar-track-blue-lighter scrollbar-thumb-blue scrollbar-thumb-rounded`)}
+                  {...register("info")}
+                  defaultValue={profile}
+                  onKeyDown={(e) => {
+                    if (profileLength >= 300 && e.key !== 'Backspace' && e.key !== 'Delete') {
+                      e.preventDefault();
+                    }
+                    if (e.key === "enter") {
+                      handleSubmit(profileSubmit)();
+                    }
+                  }}
+                />
+              ) : (
+                profile
+              )}
             </p>
           </div>
+          {isProfileEdit && <span className="float-right pr-4 text-sm text-zinc-700">{profileLength}/300</span>}
         </div>
 
         {/* Projects Section */}
         <div className="bg-white rounded-md p-6 shadow-md">
-        <div className="flex items-center justify-between w-full mb-4">
+          <div className="flex items-center justify-between w-full mb-4">
             <h3 className="text-lg font-semibold">Projects</h3>
             <button className="bg-zinc-500 rounded-md offset-none focus:ring ring-blue-400 shadow-inner text-white py-1 px-4">
               Edit details
@@ -110,7 +177,7 @@ export default function Page({}: Props) {
 
         {/* Blog Posts Section */}
         <div className="bg-white rounded-md p-6 shadow-md">
-        <div className="flex items-center justify-between w-full mb-4">
+          <div className="flex items-center justify-between w-full mb-4">
             <h3 className="text-lg font-semibold">Blog Posts</h3>
             <button className="bg-zinc-500 rounded-md offset-none focus:ring ring-blue-400 shadow-inner text-white py-1 px-4">
               Edit details
@@ -154,7 +221,7 @@ export default function Page({}: Props) {
 
         {/* Testimonials Section */}
         <div className="bg-white rounded-md p-6 shadow-md col-span-2">
-        <div className="flex items-center justify-between w-full mb-4">
+          <div className="flex items-center justify-between w-full mb-4">
             <h3 className="text-lg font-semibold">Testimonials</h3>
             <button className="bg-zinc-500 rounded-md offset-none focus:ring ring-blue-400 shadow-inner text-white py-1 px-4">
               Edit details
@@ -172,8 +239,8 @@ export default function Page({}: Props) {
             {/* Testimonial 2 */}
             <div>
               <p className="text-gray-700">
-                &quot;I highly recommend Mohammed for any web development project.
-                His attention to detail and problem-solving skills are
+                &quot;I highly recommend Mohammed for any web development
+                project. His attention to detail and problem-solving skills are
                 top-notch.&quot;
               </p>
               <p className="text-gray-600">- Jane Smith, Founder of ABC Inc.</p>
@@ -184,7 +251,7 @@ export default function Page({}: Props) {
 
         {/* Education Section */}
         <div className="bg-white rounded-md p-6 shadow-md">
-        <div className="flex items-center justify-between w-full mb-4">
+          <div className="flex items-center justify-between w-full mb-4">
             <h3 className="text-lg font-semibold">Education</h3>
             <button className="bg-zinc-500 rounded-md offset-none focus:ring ring-blue-400 shadow-inner text-white py-1 px-4">
               Edit details
@@ -206,7 +273,7 @@ export default function Page({}: Props) {
 
         {/* Stacks Section */}
         <div className="bg-white rounded-md p-6 shadow-md">
-        <div className="flex items-center justify-between w-full mb-4">
+          <div className="flex items-center justify-between w-full mb-4">
             <h3 className="text-lg font-semibold">Stacks</h3>
             <button className="bg-zinc-500 rounded-md offset-none focus:ring ring-blue-400 shadow-inner text-white py-1 px-4">
               Edit details
@@ -223,7 +290,7 @@ export default function Page({}: Props) {
 
         {/* Achievements Section */}
         <div className="bg-white rounded-md p-6 shadow-md">
-        <div className="flex items-center justify-between w-full mb-4">
+          <div className="flex items-center justify-between w-full mb-4">
             <h3 className="text-lg font-semibold">Achievements</h3>
             <button className="bg-zinc-500 rounded-md offset-none focus:ring ring-blue-400 shadow-inner text-white py-1 px-4">
               Edit details

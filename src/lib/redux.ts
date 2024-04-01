@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import themeReducer from '@/reducer/theme'
+import themeReducer from '@/redux/reducer/theme'
 
 interface store {
     mode: string
