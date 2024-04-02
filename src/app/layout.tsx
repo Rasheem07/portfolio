@@ -5,6 +5,7 @@ import StoreProvider from "../components/providers/storeProvider";
 import Main from "./main";
 import TrpcProvider from "@/components/providers/trpcProviders";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,10 @@ export default function RootLayout({
       <StoreProvider>
         <TrpcProvider>
           <ClerkProvider>
-            <Main>{children}</Main>
+            <Main>
+              {children}
+              <Analytics />
+            </Main>
           </ClerkProvider>
         </TrpcProvider>
       </StoreProvider>
