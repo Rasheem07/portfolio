@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { InfiniteMovingCards } from "@/components/ui/moving-card";
 import { useTheme } from "@/lib/reduxSelectors";
 import { trpc } from "./_trpc/trpcClient";
+import { useUser } from "@clerk/nextjs";
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: -150 },
@@ -83,6 +84,10 @@ const testimonials = [
 
 
 export default function Home() {
+
+  const user = useUser();
+
+  const username = user.user?.fullName;
 
   const currentuseTheme = useTheme();
 

@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
 import { useTheme } from "@/lib/reduxSelectors";
 import { cn } from "@/lib/utils";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 type Props = {
@@ -11,6 +12,8 @@ type Props = {
 
 export default function Main({children}: Props) {
     const currentuseTheme = useTheme();
+    const router = usePathname();
+
   return (
     <body
       className={cn(
@@ -19,7 +22,9 @@ export default function Main({children}: Props) {
         } min-w-[100vw] min-h-screen m-0 p-0 overflow-x-hidden transition-all`
       )}
     >
+      {router !== '/sign-up' && router !== '/sign-in' &&
       <Navbar />
+      }
       {children}
       <Footer />
     </body>

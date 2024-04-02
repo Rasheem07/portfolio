@@ -4,6 +4,7 @@ import "./globals.css";
 import StoreProvider from "../components/providers/storeProvider";
 import Main from "./main";
 import TrpcProvider from "@/components/providers/trpcProviders";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <StoreProvider>
         <TrpcProvider>
-          <Main>{children}</Main>
+          <ClerkProvider>
+            <Main>{children}</Main>
+          </ClerkProvider>
         </TrpcProvider>
       </StoreProvider>
     </html>

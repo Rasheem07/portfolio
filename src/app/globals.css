@@ -90,3 +90,8 @@
     background-image: url('/grainy.png'); /* Path to your grainy texture image */
     background-blend-mode: overlay; /* Overlay the texture on the background */
 }
+
+.cl-internal-b3fm6y{
+  display: none;
+  visibility: hidden;
+}
