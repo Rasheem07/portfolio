@@ -5,9 +5,6 @@ import { TRPCError } from "@trpc/server";
 import bcrypt from 'bcryptjs';
 import { db } from "@/database";
 import jwt from 'jsonwebtoken';
-import { cookies } from "next/headers";
-
-const cookieStore = cookies();
 
 export const createAdmin = publicProcedure.input(z.object({
     username: z.string(),
