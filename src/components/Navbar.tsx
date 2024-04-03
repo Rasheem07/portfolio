@@ -30,7 +30,7 @@ export default function Navbar({}: Props) {
     const location = usePathname();
 
   return (
-    <nav className={`sticky top-0 inset-x-0 h-14 w-full border-gray-200 ${useTheme() === "dark"? 'bg-[rgba(26,26,26, .75)] border-none'  : 'bg-white/75 border-b'} transition-all backdrop-blur-lg z-40`}>
+    <nav className={`sticky top-0 inset-x-0 h-14 w-full border-gray-200 ${useTheme() === "dark"? 'bg-[rgba(26,26,26, .75)] border-none'  : 'bg-white/75 border-b'} transition-colors backdrop-blur-lg z-40`}>
       <MaxWidthWrapper>
         <div className={`flex flex-row h-14 justify-between items-center ${useTheme() === 'dark'? 'border-none': 'border-b'} border-zinc-200`}>
           <Link

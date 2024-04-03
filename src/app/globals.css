@@ -95,3 +95,25 @@
   display: none;
   visibility: hidden;
 }
+
+@media (max-width: 768px) {
+  .sm-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 1024px) {
+  .md-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.image-transparent{
+  mix-blend-mode: multiply !important;
+}

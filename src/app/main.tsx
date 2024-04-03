@@ -19,7 +19,7 @@ export default function Main({children}: Props) {
       className={cn(
         `font-sans antialiased ${
           currentuseTheme === "light" ? "grainy" : "dark"
-        } min-w-[100vw] min-h-screen m-0 p-0 overflow-x-hidden transition-all`
+        } min-w-[100vw] min-h-screen m-0 p-0 overflow-x-hidden transition-colors max-w-[100vw]`
       )}
     >
       {router !== '/sign-up' && router !== '/sign-in' &&

@@ -12,7 +12,8 @@ export default function Footer({}: Props) {
 
   return (
     <MaxWidthWrapper className={` ${currentuseTheme === "light" ? 'dark-bg' : 'bg-[#d3d3d3]'} min-h-48 shadow-inner flex flex-col items-center py-4`}>
-     <footer className='flex flex-col md:flex-row gap-6 md:gap-0 ml-24 md:mx-0 justify-between h-full w-full py-8 px-12'>
+      <div className='w-full flex flex-col items-center'>
+     <footer className='flex flex-col md:flex-row gap-6 max-w-xs sm:max-w-none md:gap-0 md:mx-0 justify-between h-full w-full py-8 px-12'>
       <div className="flex flex-col gap-2">
         <h2 className={`text-lg ${currentuseTheme === "light"? 'text-white' : 'text-dark'} font-semibold`}>Contact Information</h2>
         <div className='flex flex-col gap-3'>
@@ -59,6 +60,7 @@ export default function Footer({}: Props) {
       </div>
      </footer>
      <span className={`text-[16px] leading-6 mx-auto ${currentuseTheme === "light"? "text-white" : "text-dark"} font-sans`}>&copy; Rasheem&apos;s Portfolio 2024</span>
+     </div>
     </MaxWidthWrapper>
   )
 }
