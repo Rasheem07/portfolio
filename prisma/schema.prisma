@@ -14,7 +14,35 @@ datasource db {
 }
 
 model Admin {
-  id       String @id @unique @default(uuid())
-  username     String   @unique
+  id       String    @id @unique @default(uuid())
+  username String    @unique
   password String
+  Article  Article[]
+}
+
+model Article {
+  id         String   @id @default(uuid())
+  title      String
+  content    String
+  createdAt  DateTime @default(now())
+  updatedAat DateTime @updatedAt()
+  admin      Admin    @relation(references: [id], fields: [adminId])
+  adminId    String
+}
+
+model project {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  imageURL    String
+  codeURL     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt()
+}
+
+model skill{
+  id String @id @default(uuid())
+  skill String @unique
+  description String
+  iconURL String?
 }

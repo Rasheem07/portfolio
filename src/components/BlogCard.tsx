@@ -7,9 +7,10 @@ interface BlogCardProps {
   description: string;
   imageUrl: string;
   slug: string;
+  onClick: React.MouseEventHandler<HTMLParagraphElement>
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ title, description, imageUrl, slug }) => {
+const BlogCard: React.FC<BlogCardProps> = ({ title, description, imageUrl, slug , onClick}) => {
   return (
     <div className="flex bg-white shadow-lg rounded-lg overflow-hidden">
       <div className="p-6 flex-1">
@@ -21,7 +22,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ title, description, imageUrl, slug 
         <p className="text-gray-700 text-base sm-truncate md-truncate">{description}</p>
         <div className="mt-4">
           <Link href={`/blogs/${slug}`}>
-            <p className="inline-block bg-blue-500 text-white px-3 py-1 rounded-full">Read more</p>
+            <p onClick={onClick} className="inline-block bg-blue-500 text-white px-3 py-1 rounded-full">Read more</p>
           </Link>
         </div>
       </div>

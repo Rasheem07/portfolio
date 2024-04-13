@@ -82,9 +82,7 @@ const testimonials = [
   },
 ];
 
-
 export default function Home() {
-
   const user = useUser();
 
   const username = user.user?.fullName;
@@ -93,7 +91,7 @@ export default function Home() {
 
   return (
     <>
-      <MaxWidthWrapper className="mt-16 md:mt-24 flex flex-col items-center">
+      <MaxWidthWrapper className="mt-16 md:mt-32 flex flex-col items-center">
         <motion.div
           variants={variants}
           initial="hidden"
@@ -111,16 +109,21 @@ export default function Home() {
                 damping: 20,
                 stiffness: 100,
               }}
-              className={`font-bold ${currentuseTheme === 'dark'? 'text-white' : 'text-gray-700'} max-w-4xl text-4xl md:text-5xl lg:text-6xl`}
+              className={`font-bold ${
+                currentuseTheme === "dark" ? "text-white" : "text-gray-700"
+              } max-w-4xl text-4xl md:text-5xl lg:text-6xl`}
             >
-              Hey there! I&apos;m <span className="text-blue-600">Rasheem.</span>
+              Hey there! I&apos;m{" "}
+              <span className="text-blue-600">Rasheem.</span>
             </motion.h1>
             <motion.p
               variants={ParagraphVariant}
               initial="hidden"
               animate="enter"
               transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-              className={`max-w-prose sm:text-lg font-semibold ${currentuseTheme === 'dark'?'text-white/85':'text-zinc-700'} mt-3`}
+              className={`max-w-prose sm:text-lg font-semibold ${
+                currentuseTheme === "dark" ? "text-white/85" : "text-zinc-700"
+              } mt-3`}
             >
               A <span className="text-blue-600">web developer</span> with 2
               years of coding experience across different tech stacks like MERN
@@ -150,7 +153,11 @@ export default function Home() {
                     clipPath:
                       "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
                   }}
-                  className={`relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr ${currentuseTheme === 'light'? 'from-blue-400 to-zinc-300' : 'from-white/75 to-zinc-500' } opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.125rem] rotate-[30deg]`}
+                  className={`relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr ${
+                    currentuseTheme === "light"
+                      ? "from-blue-400 to-zinc-300"
+                      : "from-white/75 to-zinc-500"
+                  } opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.125rem] rotate-[30deg]`}
                 />
               </div>
             </div>
@@ -158,115 +165,73 @@ export default function Home() {
         </motion.div>
       </MaxWidthWrapper>
       <MaxWidthWrapper className="flex flex-col mt-24 mb-14">
-        <motion.h2
-          variants={HeadingVariant}
-          initial="hidden"
-          animate="enter"
-          transition={{ type: "ease" }}
-          className={`text-2xl font-bold ${currentuseTheme === "dark"?'text-white' : 'text-gray-900'} px-1`}
-        >
-          Services Offered
-        </motion.h2>
-        <motion.div
-          variants={cardsVariant}
-          initial="hidden"
-          animate="enter"
-          className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center justify-between w-full mt-4"
-        >
-          <div className={`flex flex-col gap-4 ${currentuseTheme === "light" ? 'bg-white' : 'bg-white/95'} shadow-md hover:shadow-lg rounded-md min-h-64 min-w-64 py-4 px-6`}>
-            <h3 className="text-xl font-semibold text-gray-800">
-              Frontend Development
-            </h3>
-            <motion.p
-              variants={ParagraphVariant}
-              initial="hidden"
-              animate="enter"
-              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-              className="text-[16px] leading-6 font-medium text-zinc-700"
-            >
-              <span className="font-semibold text-blue-500">Description: </span>
-              Crafting high-performance interfaces with React and Next.js, using
-              modern libraries like React Query for seamless data fetching.
-              Ensuring responsiveness and speed across devices for exceptional
-              user experiences.
-            </motion.p>
-            <motion.p
-              variants={ParagraphVariant}
-              initial="hidden"
-              animate="enter"
-              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-              className="text-sm font-medium text-gray-600"
-            >
-              <span className="font-semibold underline underline-offset-2">
-                Key Features:
-              </span>{" "}
-              Responsive Web Design, User InterFace Design, Performance
-              Optimisation and more
-            </motion.p>
+        <div className="mx-auto mt-32 mb-32 sm:mt-48 max-w-5xl">
+          <div className="mb-12 px-6 sm:px-8">
+            <div className="mx-auto max-w-3xl sm:text-center">
+              <h1 className="mt-2 text-gray-900 font-bold text-5xl sm:text-6xl">
+                Let&apos;s get started now!
+              </h1>
+              <p className="text-lg text-gray-600 mt-4">
+                get your website ready within the expected time!
+              </p>
+            </div>
           </div>
-          <div className={`flex flex-col ${currentuseTheme === "light" ? 'bg-white' : 'bg-white/95'} shadow-md hover:shadow-lg rounded-md min-h-64 min-w-64 px-6 py-4 gap-4`}>
-            <h3 className="text-xl font-semibold text-gray-800">
-              Backend Development
-            </h3>
-            <motion.p
-              variants={ParagraphVariant}
-              initial="hidden"
-              animate="enter"
-              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-              className="text-[16px] leading-6 font-medium text-zinc-700"
-            >
-              <span className="font-semibold text-blue-500">Description: </span>
-              Crafting scalable Express.js backend solutions for MERN stack
-              apps. Utilizing tRPC and Prisma for efficient Next.js projects.
-              Seamlessly integrating authentication and real-time updates for
-              reliability and efficiency.
-            </motion.p>
-            <motion.p
-              variants={ParagraphVariant}
-              initial="hidden"
-              animate="enter"
-              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-              className="text-sm font-medium text-gray-600"
-            >
-              <span className="font-semibold underline underline-offset-2">
-                Key Features:
-              </span>{" "}
-              Backend Frameworks, RESTful API, Authentication and Authorization
-              and more
-            </motion.p>
+          <ol className="my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0">
+            <li className="md:flex-1">
+              <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+                <span className="text-sm font-medium text-blue-600">
+                  service 1
+                </span>
+                <span className="text-xl font-semibold">
+                  Frontend development
+                </span>
+                <span className="mt-2 text-zinc-700">
+                  deals with the looks of website.
+                </span>
+              </div>
+            </li>
+            <li className="md:flex-1">
+              <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+                <span className="text-sm font-medium text-blue-600">
+                  service 2
+                </span>
+                <span className="text-xl font-semibold">
+                  Backend development
+                </span>
+                <span className="mt-2 text-zinc-700">
+                  REST api&apos;s, database integration, Authentication and more
+                </span>
+              </div>
+            </li>
+            <li className="md:flex-1">
+              <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+                <span className="text-sm font-medium text-blue-600">
+                  service 3
+                </span>
+                <span className="text-xl font-semibold">
+                  full stack developement
+                </span>
+                <span className="mt-2 text-zinc-700">
+                  typesafe, form management, emails...
+                </span>
+              </div>
+            </li>
+          </ol>
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="mt-16 flow-root sm:mt-24">
+              <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+                <Image
+                  src="/financial-app-preview.png"
+                  alt="uploading preview"
+                  width={1419}
+                  height={732}
+                  quality={100}
+                  className="rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10"
+                />
+              </div>
+            </div>
           </div>
-          <div className={`flex flex-col ${currentuseTheme === "light" ? 'bg-white' : 'bg-white/95'} shadow-md hover:shadow-lg rounded-md min-h-64 min-w-64 px-6 py-4 gap-4`}>
-            <h3 className="text-xl font-semibold text-gray-800">
-              Full stack Development(T3)
-            </h3>
-            <motion.p
-              variants={ParagraphVariant}
-              initial="hidden"
-              animate="enter"
-              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-              className="text-[16px] leading-6 font-medium text-zinc-700"
-            >
-              <span className="font-semibold text-blue-500">Description: </span>
-              Crafting high-performance web apps with Next.js, TypeScript, and
-              modern libraries like tRPC and Prisma. Seamlessly integrating
-              responsive design, efficient data management, and robust
-              validation.
-            </motion.p>
-            <motion.p
-              variants={ParagraphVariant}
-              initial="hidden"
-              animate="enter"
-              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-              className="text-sm font-medium text-gray-600"
-            >
-              <span className="font-semibold underline underline-offset-2">
-                Key Features:
-              </span>
-              Responsive Web Design, User Interface Design, Performance
-              Optimization, typesafe and more
-            </motion.p>
-          </div>
-        </motion.div>
+        </div>
       </MaxWidthWrapper>
       <MaxWidthWrapper className="flex flex-col mt-24 mb-14">
         <motion.h2
@@ -274,7 +239,9 @@ export default function Home() {
           initial="hidden"
           animate="enter"
           transition={{ type: "easeInOut", duration: 0.5 }}
-          className={`text-2xl font-bold ${currentuseTheme === "dark"?'text-white' : 'text-gray-900'} px-1`}
+          className={`text-2xl font-bold pb-2 md:text-center ${
+            currentuseTheme === "dark" ? "text-white" : "text-gray-900"
+          } px-1`}
         >
           Best Works
         </motion.h2>
@@ -290,9 +257,7 @@ export default function Home() {
           }}
           className="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-6 items-center justify-between w-full mt-4 z-30"
         >
-
           <BestWork
-          className="md:col-span-2"
             imgURL="/dashboard-preview.jpg"
             title="TalkiePDF Web App"
             description="Introducing ChatPDF: Authenticate to securely upload and
@@ -313,16 +278,18 @@ export default function Home() {
             stack=" React, Nextjs, Prisma, tailwindcss"
           />
 
-
-          <BestWork
-            imgURL="/swiggy-preview.png"
-            title="Swiggy Clone (end to end)"
-            description=" Introducing our MERN stack Swiggy clone: Authenticate to enjoy
+          <div className="md:col-span-2 flex flex-row w-full justify-center">
+            <BestWork
+            className="max-w-xl"
+              imgURL="/swiggy-preview.png"
+              title="Swiggy Clone (end to end)"
+              description=" Introducing our MERN stack Swiggy clone: Authenticate to enjoy
             seamless food ordering with real-time tracking and payment
             integration. Optimize performance for an efficient platform,
             ensuring a smooth user experience throughout."
-            stack="Reactjs, tailwindCSS, Expressjs, MongoDB"
-          />
+              stack="Reactjs, tailwindCSS, Expressjs, MongoDB"
+            />
+          </div>
         </motion.div>
       </MaxWidthWrapper>
       <MaxWidthWrapper className="flex flex-col mt-24 mb-14">
@@ -331,7 +298,9 @@ export default function Home() {
           initial="hidden"
           animate="enter"
           transition={{ type: "ease" }}
-          className={`text-2xl font-bold capitalize ${currentuseTheme === "dark" ? 'text-white' :'text-gray-900'} px-1 text-center`}
+          className={`text-2xl font-bold capitalize ${
+            currentuseTheme === "dark" ? "text-white" : "text-gray-900"
+          } px-1 text-center`}
         >
           client testimonials
         </motion.h2>

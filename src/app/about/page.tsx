@@ -2,20 +2,14 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import VeiwAll from "@/components/VeiwAll";
 import Certificate from "@/components/certificate";
-import { Dialog, DialogTrigger } from "@/components/ui/dialog";
-import { TracingBeam } from "@/components/ui/tracingBeam";
-import { DialogContent } from "@radix-ui/react-dialog";
-import { ChevronRight } from "lucide-react";
-import Image from "next/image";
 import React, { useState } from "react";
 
 type Props = {};
 
 export default function Page({}: Props) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <MaxWidthWrapper className="flex flex-col items-start mt-8 sm:mt-16 px-4 md:px-10 mb-12">
+    <MaxWidthWrapper className="flex flex-col items-start mt-8 sm:mt-16 px-2.5 md:px-10 mb-12">
       <div className="mx-auto space-y-8 sm:space-y-10">
         <section className="flex flex-col items-start">
           <h2 className="text-2xl font-bold text-gray-900">About me</h2>

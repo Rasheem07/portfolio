@@ -117,3 +117,7 @@
 .image-transparent{
   mix-blend-mode: multiply !important;
 }
+
+.ql-container {
+  min-height: 60vh !important;
+}

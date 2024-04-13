@@ -11,6 +11,7 @@ import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from "next/navigation";
 import { trpc } from "../_trpc/trpcClient";
+import { buttonVariants } from "@/components/ui/button";
 
 type Props = {};
 
@@ -125,9 +126,9 @@ export default function Page({}: Props) {
         <div className="bg-white rounded-md p-6 shadow-md">
           <div className="flex items-center justify-between w-full mb-4">
             <h3 className="text-lg font-semibold">Projects</h3>
-            <button className="bg-zinc-500 rounded-md offset-none focus:ring ring-blue-400 shadow-inner text-white py-1 px-4">
+            <Link href='/admin/projects/add' className={cn(buttonVariants({variant: 'ghost', size: 'sm'}),"bg-zinc-500 rounded-md offset-none focus:ring ring-blue-400 shadow-inner text-white py-1 px-4")}>
               Edit details
-            </button>
+            </Link>
           </div>
           {/* Add your projects content here */}
           <ul className="space-y-4 overflow-y-auto scrollbar-w-2 scrollbar-track-blue-lighter scrollbar-thumb-blue scrollbar-thumb-rounded">

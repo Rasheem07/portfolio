@@ -21,9 +21,9 @@ export default function BestWork({className, imgURL, title, description, stack}:
   const currentuseTheme = useTheme();
 
   return (
-    <div className={cn(className ,`flex flex-col ${currentuseTheme === "light" ? 'bg-white' : 'bg-white/95'} shadow-md hover:shadow-lg rounded-md min-h-64 min-w-64 px-6 py-4 gap-4 h-full`)}>
-      <div className="flex flex-row items-center justify-between px-2 h-full gap-6">
-        <div className="flex flex-col h-full flex-shrink-0 w-[35%] justify-start pt-2.5">
+    <div className={cn(className ,`flex flex-row ${currentuseTheme === "light" ? 'bg-white' : 'bg-white/95'} shadow-md hover:shadow-lg rounded-md min-h-64 min-w-64 px-6 py-4 gap-4 h-full`)}>
+      <div className="flex flex-col items-center justify-between px-2 h-full gap-6">
+        <div className="flex flex-row h-full justify-between gap-6 pt-2.5">
           <Dialog
             open={isOpen}
             onOpenChange={(v) => {
@@ -36,8 +36,8 @@ export default function BestWork({className, imgURL, title, description, stack}:
               <Image
                 src={imgURL}
                 alt="sample image"
-                width={350}
-                height={300}
+                width={250}
+                height={200}
               />
             </DialogTrigger>
             <DialogContent className="max-w-6xl w-full">
@@ -50,11 +50,11 @@ export default function BestWork({className, imgURL, title, description, stack}:
               />
             </DialogContent>
           </Dialog>
-        </div>
-        <div className="flex flex-col flex-1 space-y-2">
-          <h3 className="text-xl font-semibold text-gray-800">
+          <h3 className="text-xl font-semibold text-gray-800 pt-2">
             {title}
           </h3>
+        </div>
+        <div className="flex flex-col flex-1 space-y-2">
           <p className="text-[16px] leading-6 font-medium text-zinc-700">
             <span className="font-semibold text-blue-500">Description: </span>
             {description}

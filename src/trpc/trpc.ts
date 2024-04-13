@@ -1,14 +1,12 @@
-import { initTRPC } from '@trpc/server';
- 
-/**
- * Initialization of tRPC backend
- * Should be done only once per backend!
- */
+import { db } from "@/database";
+import { TRPCError, initTRPC } from "@trpc/server";
+
 const t = initTRPC.create();
- 
-/**
- * Export reusable router and procedure helpers
- * that can be used throughout the router
- */
+const middleware = t.middleware;
+
+interface AuthInput {
+  id: string;
+}
+
 export const router = t.router;
 export const publicProcedure = t.procedure;
