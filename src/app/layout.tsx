@@ -6,6 +6,7 @@ import Main from "./main";
 import TrpcProvider from "@/components/providers/trpcProviders";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
             <Main>
               {children}
               <Analytics />
+              <SpeedInsights />
             </Main>
           </ClerkProvider>
         </TrpcProvider>

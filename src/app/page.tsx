@@ -255,17 +255,15 @@ export default function Home() {
             stiffness: 100,
             staggerChildren: 0.1,
           }}
-          className="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-6 items-center justify-between w-full mt-4 z-30"
+          className="flex flex-row flex-wrap gap-3 items-center w-full mt-4 z-30"
         >
           <BestWork
             imgURL="/dashboard-preview.jpg"
             title="TalkiePDF Web App"
             description="Introducing ChatPDF: Authenticate to securely upload and
             preview PDFs with advanced features like zoom, search, and
-            pagination. Seamlessly chat while previewing documents,
-            ensuring optimal performance for a streamlined user
-            experience."
-            stack="Nextjs, tailwindCSS, Prisma, tRPC, react-hook-form, react-query, zod"
+            pagination."
+            stack="Nextjs, tailwindCSS, Prisma, tRPC..."
           />
 
           <BestWork
@@ -273,23 +271,17 @@ export default function Home() {
             title="Financial Management Web App"
             description="Introducing our sleek financial management app, empowering
                   users to effortlessly track balances, goals, expenses, and
-                  transactions. Seamlessly manage bills and subscriptions while
-                  maintaining multiple virtual accounts for optimal control."
+                  transactions."
             stack=" React, Nextjs, Prisma, tailwindcss"
           />
 
-          <div className="md:col-span-2 flex flex-row w-full justify-center">
-            <BestWork
+          <BestWork
             className="max-w-xl"
-              imgURL="/swiggy-preview.png"
-              title="Swiggy Clone (end to end)"
-              description=" Introducing our MERN stack Swiggy clone: Authenticate to enjoy
-            seamless food ordering with real-time tracking and payment
-            integration. Optimize performance for an efficient platform,
-            ensuring a smooth user experience throughout."
-              stack="Reactjs, tailwindCSS, Expressjs, MongoDB"
-            />
-          </div>
+            imgURL="/swiggy-preview.png"
+            title="Swiggy Clone (end to end)"
+            description="A full stack food delivery web app which authenticates users, explore different restaurants, cart and order food in bulk."
+            stack="Reactjs, tailwindCSS, Expressjs, MongoDB"
+          />
         </motion.div>
       </MaxWidthWrapper>
       <MaxWidthWrapper className="flex flex-col mt-24 mb-14">
