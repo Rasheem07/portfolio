@@ -48,37 +48,23 @@ const testimonials = [
   {
     id: 1,
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo reiciendis corrupti a debitis aliquam vitae delectus porro, sit architecto, cupiditate numquam minus possimus quae.",
-    name: "rasheem&apos;s client",
-    title: "high quality website!",
+      "I'm so glad I found this freelancer. They were dedicated, responsive, and delivered exactly what I needed for my project.",
+    name: "Sarah Johnson",
+    title: "Small Business Owner",
   },
   {
     id: 2,
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo reiciendis corrupti a debitis aliquam vitae delectus porro, sit architecto, cupiditate numquam minus possimus quae.",
-    name: "rasheem&apos;s client",
-    title: "high quality website!",
+      "This freelancer went above and beyond to create a beautiful website for my startup. I highly recommend their services!",
+    name: "Michael Anderson",
+    title: "Entrepreneur",
   },
   {
     id: 3,
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo reiciendis corrupti a debitis aliquam vitae delectus porro, sit architecto, cupiditate numquam minus possimus quae.",
-    name: "rasheem&apos;s client",
-    title: "high quality website!",
-  },
-  {
-    id: 4,
-    quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo reiciendis corrupti a debitis aliquam vitae delectus porro, sit architecto, cupiditate numquam minus possimus quae.",
-    name: "rasheem&apos;s client",
-    title: "high quality website!",
-  },
-  {
-    id: 5,
-    quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo reiciendis corrupti a debitis aliquam vitae delectus porro, sit architecto, cupiditate numquam minus possimus quae.",
-    name: "rasheem&apos;s client",
-    title: "high quality website!",
+      "Working with this freelancer was a pleasure. They were patient, understanding, and eager to help me achieve my goals within my budget.",
+    name: "Emily Roberts",
+    title: "Freelance Writer",
   },
 ];
 
